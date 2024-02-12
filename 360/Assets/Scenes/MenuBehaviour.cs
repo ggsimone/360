@@ -23,18 +23,18 @@ public class MenuBehaviourScript : MonoBehaviour
         
     }
 
-    void quitBtn()
+    public void quitBtn()
     {
         Debug.Log("App quit called");
         Application.Quit();
     }
 
-    void startGuidedBtn()
+    public void startGuidedBtn()
     {
         Debug.Log("Starting guided playthrough");
     }
 
-    void startFreeBtn()
+    public void startFreeBtn()
     {
         Debug.Log("Starting free playthrough");
     }
