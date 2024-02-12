@@ -502,6 +502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Randonnee:
   - {fileID: 2100000, guid: e6aefe6250e9ad84e96d64a1132ec995, type: 2}
+  - {fileID: 2100000, guid: 616325fb1bd20ac4b8dc7eb79d7f17a6, type: 2}
+  - {fileID: 2100000, guid: 98958e0d660a20243a0e9b79ee5984e0, type: 2}
   Mer: []
   Monde: []
 --- !u!4 &916105373
