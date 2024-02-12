@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
 public class Image360Manager : MonoBehaviour
 {
-    Material[][] tableauDeMateriaux = new Material[3][];
+    Material[][] tableauDeMateriaux = new Material[4][];
     public Material[] Randonnee;
     public Material[] Mer;
     public Material[] Monde;
+    public Material[] Urbain;
     private int index = 0;
     private int idxType = 0;
 
@@ -15,8 +18,11 @@ public class Image360Manager : MonoBehaviour
     public AudioClip[] RandonneeAudio;
     public AudioClip[] MerAudio;
     public AudioClip[] MondeAudio;
+    public AudioClip[] UrbainAudio;
 
-    AudioClip[][] tableauAudios = new AudioClip[3][];
+    AudioClip[][] tableauAudios = new AudioClip[4][];
+
+    public float threshold = 0.5f;
 
 
     void Start()
@@ -25,12 +31,14 @@ public class Image360Manager : MonoBehaviour
         tableauDeMateriaux[0] = Randonnee;
         tableauDeMateriaux[1] = Mer;
         tableauDeMateriaux[2] = Monde;
+        tableauDeMateriaux[3] = Urbain;
         tableauAudios[0] = RandonneeAudio;
         tableauAudios[1] = MerAudio;
         tableauAudios[2] = MondeAudio;
+        tableauAudios[2] = UrbainAudio;
 
 
-        //idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde
+        //idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde, 3 = Urbain
         idxType = 1; //debug
         
         //print(tableauDeMateriaux[0][0].name);
@@ -43,12 +51,24 @@ public class Image360Manager : MonoBehaviour
         {
             VisiteAuto();
         }
-        VisiteAuto();
+        
     }
 
     void Update()
     {
-        
+        /*float horizontalInput = Input.GetAxis("Horizontal");
+        print(horizontalInput);
+        if (horizontalInput < -threshold)
+        {
+            print("goleft");
+            IndexMoins();
+            ChangeSkyboxIndex(index);
+        }
+        else if (horizontalInput > threshold)
+        {
+            IndexPlus();
+            ChangeSkyboxIndex(index);
+        }*/
     }
 
     public void VisiteAuto()
@@ -66,17 +86,26 @@ public class Image360Manager : MonoBehaviour
 
     public void ChangeSkyboxIndex(int idx)
     {
+        JouerAudioAleatoire();
         RenderSettings.skybox = tableauDeMateriaux[idxType][idx];
     }
 
     public void IndexPlus()
     {
-        index++;
+        if(index< tableauDeMateriaux[idxType].Length - 1)
+        {
+            index++;
+        }
+        
     }
 
     public void IndexMoins()
     {
-        index--;
+        if (index > 0)
+        {
+            index--;
+        }
+      
     }
 
     IEnumerator CoroutineWait()
