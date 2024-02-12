@@ -38,4 +38,14 @@ public class MenuBehaviourScript : MonoBehaviour
     {
         Debug.Log("Starting free playthrough");
     }
+
+    public void SelectVisite(string visite)
+    {
+        PlayerPrefs.SetString("GuideLibre", visite);
+    }
+
+    public void SelectType(int type)
+    {
+        PlayerPrefs.SetInt("Type", type);
+    }
 }

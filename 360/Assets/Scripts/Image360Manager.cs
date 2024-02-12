@@ -81,8 +81,6 @@ public class Image360Manager : MonoBehaviour
 
     IEnumerator CoroutineWait()
     {
-        print("Wait for seconds");
-        print(index);
         yield return new WaitForSeconds(5f);       //Attente de X secondes
         if (index < tableauDeMateriaux[idxType].Length-1)
         {
@@ -94,11 +92,9 @@ public class Image360Manager : MonoBehaviour
     private void JouerAudioAleatoire()
     {
 
-        // Sélectionnez un AudioClip aléatoire dans le tableau sélectionné
         AudioClip[] tableauSelectionne = tableauAudios[idxType];
         AudioClip nouveauClip = tableauSelectionne[Random.Range(0, tableauSelectionne.Length)];
 
-        // Vérifiez si le nouveau clip est différent du clip en cours de lecture
         if(source.clip != null)
         {
             while (nouveauClip.name == source.clip.name)
@@ -106,9 +102,7 @@ public class Image360Manager : MonoBehaviour
                 nouveauClip = tableauSelectionne[Random.Range(0, tableauSelectionne.Length)];
             }
         }
-        print(nouveauClip.name);
 
-        // Mettez à jour le clip en cours de lecture
         source.clip = nouveauClip;
         source.Play();
     }
