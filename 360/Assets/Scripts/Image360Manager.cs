@@ -9,7 +9,7 @@ public class Image360Manager : MonoBehaviour
     public Material[] Mer;
     public Material[] Monde;
     private int index = 0;
-    private int idxType;
+    private int idxType = 0;
 
     private AudioSource source;
     public AudioClip[] RandonneeAudio;
@@ -31,7 +31,7 @@ public class Image360Manager : MonoBehaviour
 
 
         //idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde
-        idxType = 0; //debug
+        idxType = 1; //debug
         
         //print(tableauDeMateriaux[0][0].name);
 
@@ -81,7 +81,7 @@ public class Image360Manager : MonoBehaviour
 
     IEnumerator CoroutineWait()
     {
-        yield return new WaitForSeconds(5f);       //Attente de X secondes
+        yield return new WaitForSeconds(20f);       //Attente de X secondes
         if (index < tableauDeMateriaux[idxType].Length-1)
         {
             index++;
