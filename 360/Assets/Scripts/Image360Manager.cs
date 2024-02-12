@@ -6,6 +6,8 @@ public class Image360Manager : MonoBehaviour
 {
 
     public Material[] Randonnee;
+    public Material[] Mer;
+    public Material[] Monde;
     private int index = 0;
 
     void Start()

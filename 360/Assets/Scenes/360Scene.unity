@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 98958e0d660a20243a0e9b79ee5984e0, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 616325fb1bd20ac4b8dc7eb79d7f17a6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3048619, g: 0.4264717, b: 0.55987036, a: 1}
+  m_IndirectSpecularColor: {r: 0.6561124, g: 0.61665016, b: 0.5409159, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -502,6 +502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Randonnee:
   - {fileID: 2100000, guid: e6aefe6250e9ad84e96d64a1132ec995, type: 2}
+  Mer: []
+  Monde: []
 --- !u!4 &916105373
 Transform:
   m_ObjectHideFlags: 0
