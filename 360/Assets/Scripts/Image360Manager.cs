@@ -11,35 +11,38 @@ public class Image360Manager : MonoBehaviour
     private int index = 0;
     private int idxType;
 
+    private AudioSource source;
+    public AudioClip[] RandonneeAudio;
+    public AudioClip[] MerAudio;
+    public AudioClip[] MondeAudio;
+
+    AudioClip[][] tableauAudios = new AudioClip[3][];
+
+
     void Start()
     {
+        source = GetComponent<AudioSource>();
         tableauDeMateriaux[0] = Randonnee;
         tableauDeMateriaux[1] = Mer;
         tableauDeMateriaux[2] = Monde;
-        if (PlayerPrefs.GetString("GuideLibre")=="Libre")
+        tableauAudios[0] = RandonneeAudio;
+        tableauAudios[1] = MerAudio;
+        tableauAudios[2] = MondeAudio;
+
+
+        //idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde
+        idxType = 0; //debug
+        
+        //print(tableauDeMateriaux[0][0].name);
+
+        if (PlayerPrefs.GetString("GuideLibre") == "Libre")
         {
-            //Do visite libre
+            ChangeSkyboxIndex(0);
         }
         else if (PlayerPrefs.GetString("GuideLibre") == "Guide")
         {
-            //Do visite guidee
+            VisiteAuto();
         }
-
-        idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde
-        if(idxType == 0)
-        {
-            //Lancement Rando
-        }
-        else if (idxType == 1)
-        {
-            //Lancement Mer
-        }
-        else if (idxType == 2)
-        {
-            //Lancement Monde
-        }
-        //print(tableauDeMateriaux[0][0].name);
-
         VisiteAuto();
     }
 
@@ -56,6 +59,7 @@ public class Image360Manager : MonoBehaviour
 
     private void ChangeSkyboxAuto()
     {
+        JouerAudioAleatoire();
         RenderSettings.skybox = tableauDeMateriaux[idxType][index];
         StartCoroutine(CoroutineWait());
     }
@@ -85,5 +89,27 @@ public class Image360Manager : MonoBehaviour
             index++;
             ChangeSkyboxAuto();
         }
+    }
+
+    private void JouerAudioAleatoire()
+    {
+
+        // Sélectionnez un AudioClip aléatoire dans le tableau sélectionné
+        AudioClip[] tableauSelectionne = tableauAudios[idxType];
+        AudioClip nouveauClip = tableauSelectionne[Random.Range(0, tableauSelectionne.Length)];
+
+        // Vérifiez si le nouveau clip est différent du clip en cours de lecture
+        if(source.clip != null)
+        {
+            while (nouveauClip.name == source.clip.name)
+            {
+                nouveauClip = tableauSelectionne[Random.Range(0, tableauSelectionne.Length)];
+            }
+        }
+        print(nouveauClip.name);
+
+        // Mettez à jour le clip en cours de lecture
+        source.clip = nouveauClip;
+        source.Play();
     }
 }
