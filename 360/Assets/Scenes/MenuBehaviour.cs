@@ -63,14 +63,11 @@ public class MenuBehaviourScript : MonoBehaviour
     {
         print("je le sens mal");
         SceneManager.LoadScene("360Scene");
-        print("j'avais raison");
+        print("j'avais raison"); // ??
     }
 
     public async void ChangeSceneAsync()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("360Scene");
-
-       
     }
-
 }
