@@ -63,7 +63,7 @@ public class Image360Manager : MonoBehaviour
         {
             VisiteAuto();
         }
-        ChangeSkyboxIndex(0);
+        //ChangeSkyboxIndex(0);
     }
 
     void Update()
@@ -104,6 +104,7 @@ public class Image360Manager : MonoBehaviour
     public void ChangeSkyboxIndex(int idx)
     {
         JouerAudioAleatoire();
+        print(idx);
         RenderSettings.skybox = tableauDeMateriaux[idxType][idx];
         if(idx == tableauDeMateriaux[idxType].Length - 1)
         {
