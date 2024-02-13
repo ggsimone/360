@@ -14,20 +14,28 @@ public class Image360Manager : MonoBehaviour
     private int index = 0;
     private int idxType = 0;
 
-    private AudioSource source;
+    [SerializeField] public AudioSource source1;
+    
+    AudioClip[][] tableauAudios = new AudioClip[4][];
     public AudioClip[] RandonneeAudio;
     public AudioClip[] MerAudio;
     public AudioClip[] MondeAudio;
     public AudioClip[] UrbainAudio;
 
-    AudioClip[][] tableauAudios = new AudioClip[4][];
+    [SerializeField] public AudioSource source2;
+    AudioClip[][] GuidetableauAudios = new AudioClip[4][];
+    public AudioClip[] GuideRandonneeAudio;
+    public AudioClip[] GuideMerAudio;
+    public AudioClip[] GuideMondeAudio;
+    public AudioClip[] GuideUrbainAudio;
+
+
 
     public float threshold = 0.5f;
 
 
     void Start()
     {
-        source = GetComponent<AudioSource>();
         tableauDeMateriaux[0] = Randonnee;
         tableauDeMateriaux[1] = Mer;
         tableauDeMateriaux[2] = Monde;
@@ -35,11 +43,15 @@ public class Image360Manager : MonoBehaviour
         tableauAudios[0] = RandonneeAudio;
         tableauAudios[1] = MerAudio;
         tableauAudios[2] = MondeAudio;
-        tableauAudios[2] = UrbainAudio;
+        tableauAudios[3] = UrbainAudio;
+        GuidetableauAudios[0] = GuideRandonneeAudio;
+        GuidetableauAudios[1] = GuideMerAudio;
+        GuidetableauAudios[2] = GuideMondeAudio;
+        GuidetableauAudios[3] = GuideUrbainAudio;
 
 
-        //idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde, 3 = Urbain
-        idxType = 1; //debug
+        idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde, 3 = Urbain
+        //idxType = 1; //debug
         
         //print(tableauDeMateriaux[0][0].name);
 
@@ -51,7 +63,7 @@ public class Image360Manager : MonoBehaviour
         {
             VisiteAuto();
         }
-        
+        ChangeSkyboxIndex(0);
     }
 
     void Update()
@@ -80,6 +92,7 @@ public class Image360Manager : MonoBehaviour
     private void ChangeSkyboxAuto()
     {
         JouerAudioAleatoire();
+        JouerAudioGuide();
         RenderSettings.skybox = tableauDeMateriaux[idxType][index];
         StartCoroutine(CoroutineWait());
     }
@@ -124,15 +137,29 @@ public class Image360Manager : MonoBehaviour
         AudioClip[] tableauSelectionne = tableauAudios[idxType];
         AudioClip nouveauClip = tableauSelectionne[Random.Range(0, tableauSelectionne.Length)];
 
-        if(source.clip != null)
+        if(source1.clip != null)
         {
-            while (nouveauClip.name == source.clip.name)
+            while (nouveauClip.name == source1.clip.name)
             {
                 nouveauClip = tableauSelectionne[Random.Range(0, tableauSelectionne.Length)];
             }
         }
 
-        source.clip = nouveauClip;
-        source.Play();
+        if(idxType == 1)
+        {
+            source1.volume = 0.5f;
+        }
+        source1.clip = nouveauClip;
+        source1.Play();
+    }
+
+    private void JouerAudioGuide()
+    {
+        if (GuidetableauAudios[idxType][index] != null)
+        {
+            print("heehee");
+            source2.clip = GuidetableauAudios[idxType][index];
+            source2.Play();
+        }
     }
 }

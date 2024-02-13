@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 08aea070371a24d439fccc782fe4d6b1, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8a0387715a31dba40814d74a3923fe80, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.47485203, g: 0.5470525, b: 0.66880953, a: 1}
+  m_IndirectSpecularColor: {r: 0.473289, g: 0.5607252, b: 0.65553135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,6 +187,134 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1 &594226340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594226342}
+  - component: {fileID: 594226341}
+  m_Layer: 0
+  m_Name: AudioGuide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &594226341
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594226340}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &594226342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594226340}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 916105373}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &606072971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,13 +414,13 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8a03e0de3ec16d44e9724d9074c0d754, type: 2}
   - {fileID: 2100000, guid: 08aea070371a24d439fccc782fe4d6b1, type: 2}
   Mer:
-  - {fileID: 2100000, guid: 2ba36192d64cd8243a8d72d56fc13e73, type: 2}
-  - {fileID: 2100000, guid: 8ab1622de1ee4984d84bf419a51201bd, type: 2}
-  - {fileID: 2100000, guid: 86b6fb6d86f929944995012ac2ac5ae7, type: 2}
-  - {fileID: 2100000, guid: a9e19c481808a5b44aabc80bc515afb7, type: 2}
-  - {fileID: 2100000, guid: 630f5127974d57d449396d7b6e498832, type: 2}
   - {fileID: 2100000, guid: 41a720dd804c37b4292e4c1c099358e0, type: 2}
   - {fileID: 2100000, guid: 201b2075c1cf56649a3824fa58e2237d, type: 2}
+  - {fileID: 2100000, guid: 2ba36192d64cd8243a8d72d56fc13e73, type: 2}
+  - {fileID: 2100000, guid: a9e19c481808a5b44aabc80bc515afb7, type: 2}
+  - {fileID: 2100000, guid: 86b6fb6d86f929944995012ac2ac5ae7, type: 2}
+  - {fileID: 2100000, guid: 630f5127974d57d449396d7b6e498832, type: 2}
+  - {fileID: 2100000, guid: 8ab1622de1ee4984d84bf419a51201bd, type: 2}
   Monde:
   - {fileID: 2100000, guid: 616325fb1bd20ac4b8dc7eb79d7f17a6, type: 2}
   - {fileID: 2100000, guid: d68099ea48129324284ec080179f1061, type: 2}
@@ -305,12 +433,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 2535d721937eb744087443d25b2f37dc, type: 2}
   - {fileID: 2100000, guid: 11f3df9d632e5a64ebb73a4b18c19bca, type: 2}
   - {fileID: 2100000, guid: 668d4e1c1abec4c4e8f61a15f0ae8cce, type: 2}
-  - {fileID: 2100000, guid: 90c79ff50aa5ed9448c76dd4f873ef31, type: 2}
-  - {fileID: 2100000, guid: f845dbfd6be2d654ea4bb66410dccc2d, type: 2}
-  - {fileID: 2100000, guid: 8dd64023fb5699944aa942092ed1f906, type: 2}
   - {fileID: 2100000, guid: 725d7c4e68ff09a4b862b51cdf918e40, type: 2}
+  - {fileID: 2100000, guid: 8dd64023fb5699944aa942092ed1f906, type: 2}
   - {fileID: 2100000, guid: 05f1862d0db61b3429379641c44f811c, type: 2}
   - {fileID: 2100000, guid: fc1879e0faa623948a0296c88f1913cc, type: 2}
+  - {fileID: 2100000, guid: f845dbfd6be2d654ea4bb66410dccc2d, type: 2}
+  source1: {fileID: 916105374}
   RandonneeAudio:
   - {fileID: 8300000, guid: 4d7339bf6d574554f858d8fb3cf52e9c, type: 3}
   - {fileID: 8300000, guid: 7eb4165a02e3a6b438133735891dea81, type: 3}
@@ -327,6 +455,35 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 21d747fc08914ea439b051c4dee86658, type: 3}
   - {fileID: 8300000, guid: 8be35c5c3c7724d48b98f7dffdb9c29e, type: 3}
   - {fileID: 8300000, guid: ced43b5a835e8424b8ebfbfe8bd6dc18, type: 3}
+  source2: {fileID: 594226341}
+  GuideRandonneeAudio:
+  - {fileID: 8300000, guid: 25e089a61221ee14aba78d1ddde9e079, type: 3}
+  - {fileID: 8300000, guid: 0b0c00b710d818e439e984849e07fc8f, type: 3}
+  - {fileID: 8300000, guid: 570c0b3ded0fdcf408a35fe096cd7d50, type: 3}
+  - {fileID: 8300000, guid: 4a549f2557f07f440a3c6312eee40f52, type: 3}
+  - {fileID: 8300000, guid: c7568e93561ea5344a248009e50b41a1, type: 3}
+  - {fileID: 8300000, guid: 00aab3a63522b334897e362fd4dd2359, type: 3}
+  - {fileID: 8300000, guid: c9c953144705f1f47a411f42ce26bc37, type: 3}
+  - {fileID: 8300000, guid: 4ac4538a7dfbc854bb10c6847cb0d646, type: 3}
+  - {fileID: 8300000, guid: 988936bf00e57dd458ef0c9d3965ecc4, type: 3}
+  - {fileID: 8300000, guid: 8a730a2157537c64ab291f05d930c6fb, type: 3}
+  GuideMerAudio:
+  - {fileID: 8300000, guid: f856454bba2400c4cadae58d294f878f, type: 3}
+  - {fileID: 8300000, guid: 827bd7d7823a68a4abe58e05f522b56e, type: 3}
+  - {fileID: 8300000, guid: 9621a0cf6e1edab43b367166cb6fa667, type: 3}
+  - {fileID: 8300000, guid: 305fe83480167954284421658c129152, type: 3}
+  - {fileID: 8300000, guid: 92d1db86e66907a4c84d2677c54acf09, type: 3}
+  - {fileID: 8300000, guid: f0105fe3aa9b9384c9203900b1d4a289, type: 3}
+  - {fileID: 8300000, guid: 0d53ff8ccee79e64db7277861b9c5c0a, type: 3}
+  GuideMondeAudio:
+  - {fileID: 8300000, guid: 2ba6a63a3a711dc4fae03b2c09d7a67e, type: 3}
+  GuideUrbainAudio:
+  - {fileID: 8300000, guid: 115c9bb8dc0d00a4b887fb55354cbd2e, type: 3}
+  - {fileID: 8300000, guid: a5e6d03e799e93e479d4a0ab1cfaf86c, type: 3}
+  - {fileID: 8300000, guid: 40ebece9f2c7d174780bfec28c502f9a, type: 3}
+  - {fileID: 8300000, guid: 32142b1b76add7a41a6b512de0d8d76d, type: 3}
+  - {fileID: 8300000, guid: c41dcb106fc96ed419152d3943807ac4, type: 3}
+  - {fileID: 8300000, guid: 98c00d669f6ac604da8ee282e7ca9e3f, type: 3}
   threshold: 0.5
 --- !u!4 &916105373
 Transform:
@@ -340,7 +497,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 594226342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &916105374
