@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Purchasing;
 using UnityEngine.XR;
 
 public class Image360Manager : MonoBehaviour
@@ -30,7 +31,8 @@ public class Image360Manager : MonoBehaviour
     public AudioClip[] GuideUrbainAudio;
 
 
-
+    public GameObject CanvaQuit;
+    public GameObject CanvaPN;
     public float threshold = 0.5f;
 
 
@@ -51,13 +53,11 @@ public class Image360Manager : MonoBehaviour
 
 
         idxType = PlayerPrefs.GetInt("Type");       //0 = Rando, 1 = Mer, 2 = Monde, 3 = Urbain
-        //idxType = 1; //debug
-        
-        //print(tableauDeMateriaux[0][0].name);
 
         if (PlayerPrefs.GetString("GuideLibre") == "Libre")
         {
             ChangeSkyboxIndex(0);
+            CanvaPN.SetActive(true);
         }
         else if (PlayerPrefs.GetString("GuideLibre") == "Guide")
         {
@@ -94,6 +94,10 @@ public class Image360Manager : MonoBehaviour
         JouerAudioAleatoire();
         JouerAudioGuide();
         RenderSettings.skybox = tableauDeMateriaux[idxType][index];
+        if (index == tableauDeMateriaux[idxType].Length - 1)
+        {
+            CanvaQuit.SetActive(true);
+        }
         StartCoroutine(CoroutineWait());
     }
 
@@ -101,6 +105,10 @@ public class Image360Manager : MonoBehaviour
     {
         JouerAudioAleatoire();
         RenderSettings.skybox = tableauDeMateriaux[idxType][idx];
+        if(idx == tableauDeMateriaux[idxType].Length - 1)
+        {
+            CanvaQuit.SetActive(true);
+        }
     }
 
     public void IndexPlus()
@@ -119,6 +127,18 @@ public class Image360Manager : MonoBehaviour
             index--;
         }
       
+    }
+
+    public void ChangeSkyboxBTGonext()
+    {
+        IndexPlus();
+        ChangeSkyboxIndex(index);
+    }
+
+    public void ChangeSkyboxBTGoprev()
+    {
+        IndexMoins();
+        ChangeSkyboxIndex(index);
     }
 
     IEnumerator CoroutineWait()

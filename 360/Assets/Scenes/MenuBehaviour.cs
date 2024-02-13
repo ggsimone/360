@@ -61,9 +61,7 @@ public class MenuBehaviourScript : MonoBehaviour
 
     public void ChangeScene()
     {
-        print("je le sens mal");
         SceneManager.LoadScene("360Scene");
-        print("j'avais raison"); // ??
     }
 
     public async void ChangeSceneAsync()
